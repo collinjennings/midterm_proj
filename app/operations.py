@@ -251,22 +251,203 @@ class Root(Operation):
         return Decimal(pow(float(a), 1 / float(b)))
     
 
-class OperationFactory:
-    """ 
-    Factory class to create operation instances based on operation name.
-
-    Implements the factory design pattern to encapsulate the instantiation logic of different operations. This makes the 
-    application more scalable and separates the creation logic from the Calculator class.
-
+class Modulus(Operation):
     """
-     # Dictionary mapping operation identifiers to their corresponding classes
+    Modulus operation implementation.
+
+    Calculates the remainder of the division of one number by another.
+    """
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """
+        Validate operands, checking for modulus by zero.
+
+        Overrides the base class method to ensure that the divisor is not zero.
+
+        Args:
+            a (Decimal): Dividend.
+            b (Decimal): Divisor.
+        Raises:
+            ValidationError: If the divisor is zero. 
+        """
+        super().validate_operands(a, b)
+        if b == 0:
+            raise ValidationError("Modulus by zero is not allowed") 
+        
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        """
+        Calculate the modulus of one number by another.
+
+        Args:
+            a (Decimal): Dividend.
+            b (Decimal): Divisor.
+
+        Returns:
+            Decimal: Remainder of the division.
+        """
+        self.validate_operands(a, b)
+        return a % b
+    
+class IntegerDivision(Operation):
+    """
+    Integer Division operation implementation.
+
+    Performs the floor division of one number by another.
+    """
+
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """
+        Validate operands, checking for division by zero.
+
+        Overrides the base class method to ensure that the divisor is not zero.
+
+        Args:
+            a (Decimal): Dividend.
+            b (Decimal): Divisor.
+        
+        Raises:
+            ValidationError: If the divisor is zero.
+        """
+        super().validate_operands(a, b)
+        if b == 0:
+            raise ValidationError("Integer division by zero is not allowed")
+    
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        """
+        Perform integer (floor) division of one number by another.
+
+        Args:
+            a (Decimal): Dividend.
+            b (Decimal): Divisor.
+
+        Returns:
+            Decimal: Result of the integer division.
+        """
+        self.validate_operands(a, b)
+        return a // b
+    
+class Percentage(Operation):
+    """
+    Percentage operation implementation.
+
+    Calculates the percentage of one number relative to another.
+    """
+
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """
+        Validate operands for percentage operation.
+
+        Overrides the base class method to ensure that the second operand is not zero.
+
+        Args:
+            a (Decimal): Part value.
+            b (Decimal): Whole value.
+
+        Raises:
+            ValidationError: If the whole value is zero.
+        """
+        super().validate_operands(a, b)
+        if b == 0:
+            raise ValidationError("Percentage calculation with zero as whole value is not allowed")
+    
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        """
+        Calculate the percentage of one number relative to another.
+
+        Args:
+            a (Decimal): Part value.
+            b (Decimal): Whole value.
+
+        Returns:
+            Decimal: Percentage value.
+        """
+        self.validate_operands(a, b)
+        return (a / b) * 100
+    
+class AbsoluteDifference(Operation):
+    """
+    Absolute Difference operation implementation.
+
+    Calculates the absolute difference between two numbers.
+    """
+
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        """
+        Calculate the absolute difference between two numbers.
+
+        Args:
+            a (Decimal): First operand.
+            b (Decimal): Second operand.
+
+        Returns:
+            Decimal: Absolute difference between the two operands.
+        """
+        self.validate_operands(a, b)
+        return abs(a - b)
+    
+
+
+class OperationFactory:
+    """
+    Factory class for creating operation instances.
+
+    Implements the Factory pattern by providing a method to instantiate
+    different operation classes based on a given operation type. This promotes
+    scalability and decouples the creation logic from the Calculator class.
+    """
+
+    # Dictionary mapping operation identifiers to their corresponding classes
     _operations: Dict[str, type] = {
         'add': Addition,
         'subtract': Subtraction,
         'multiply': Multiplication,
         'divide': Division,
         'power': Power,
-        'root': Root
+        'root': Root,
+        'modulus': Modulus, 
+        'int_divide': IntegerDivision,
+        'percent': Percentage,
+        'abs_diff': AbsoluteDifference,
     }
+
+    @classmethod
+    def register_operation(cls, name: str, operation_class: type) -> None:
+        """
+        Register a new operation type.
+
+        Allows dynamic addition of new operations to the factory.
+
+        Args:
+            name (str): Operation identifier (e.g., 'modulus').
+            operation_class (type): The class implementing the new operation.
+
+        Raises:
+            TypeError: If the operation_class does not inherit from Operation.
+        """
+        if not issubclass(operation_class, Operation):
+            raise TypeError("Operation class must inherit from Operation")
+        cls._operations[name.lower()] = operation_class
+
+    @classmethod
+    def create_operation(cls, operation_type: str) -> Operation:
+        """
+        Create an operation instance based on the operation type.
+
+        This method retrieves the appropriate operation class from the
+        _operations dictionary and instantiates it.
+
+        Args:
+            operation_type (str): The type of operation to create (e.g., 'add').
+
+        Returns:
+            Operation: An instance of the specified operation class.
+
+        Raises:
+            ValueError: If the operation type is unknown.
+        """
+        operation_class = cls._operations.get(operation_type.lower())
+        if not operation_class:
+            raise ValueError(f"Unknown operation: {operation_type}")
+        return operation_class()
+
     
 
