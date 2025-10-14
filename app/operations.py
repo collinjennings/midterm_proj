@@ -168,3 +168,105 @@ class Division(Operation):
         if b == 0:
             raise ValidationError("Division by zero is not allowed.")
         return a / b
+    
+class Power(Operation):
+    """
+    Power operation implementation. 
+
+    Performs the exponentiation of a number.
+    """
+
+    def validate_operands (self, a: Decimal, b: Decimal) -> None:
+        """
+        Validates the operands for the power operation.
+        
+        Overrides teh base class method to make sure the expnonent is not negative.
+
+        Args:
+            a (Decimal): The base.
+            b (Decimal): The exponent.
+            
+        Raises:
+            ValidationError: If the exponent is negative.
+        """
+        super().validate_operands(a, b)
+        if b < 0:
+            raise ValidationError("Negative exponent not supported")
+        
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        self.validate_operands(a, b)
+        """
+        Raise a number to the power of another number. 
+
+        Args: 
+            a (Decimal): The base.
+            b (Decimal): The exponent.
+        
+        Returns:
+            Decimal: The result of raising the base to the exponent.
+    
+        """
+        self.validate_operands(a, b)
+        return Decimal (pow((float(a)), float(b)))
+
+class Root(Operation):
+    """
+    Root operation implementation.
+
+    Calculates the nth root of a number.
+    """
+
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
+        """
+        Validate operands for root operation.
+
+        Overrides the base class method to ensure that the number is non-negative
+        and the root degree is not zero.
+
+        Args:
+            a (Decimal): Number from which the root is taken.
+            b (Decimal): Degree of the root.
+
+        Raises:
+            ValidationError: If the number is negative or the root degree is zero.
+        """
+        super().validate_operands(a, b)
+        if a < 0:
+            raise ValidationError("Cannot calculate root of negative number")
+        if b == 0:
+            raise ValidationError("Zero root is undefined")
+
+    def execute(self, a: Decimal, b: Decimal) -> Decimal:
+        """
+        Calculate the nth root of a number.
+
+        Args:
+            a (Decimal): Number from which the root is taken.
+            b (Decimal): Degree of the root.
+
+        Returns:
+            Decimal: Result of the root calculation.
+        """
+        self.validate_operands(a, b)
+        return Decimal(pow(float(a), 1 / float(b)))
+    
+
+class OperationFactory:
+    """ 
+    Factory class to create operation instances based on operation name.
+
+    Implements the factory design pattern to encapsulate the instantiation logic of different operations. This makes the 
+    application more scalable and separates the creation logic from the Calculator class.
+
+    """
+     # Dictionary mapping operation identifiers to their corresponding classes
+    _operations: Dict[str, type] = {
+        'add': Addition,
+        'subtract': Subtraction,
+        'multiply': Multiplication,
+        'divide': Division,
+        'power': Power,
+        'root': Root
+    }
+    
+
