@@ -92,3 +92,69 @@ class CalculatorConfig:
             'CALCULATOR_DEFAULT_ENCODING', 'utf-8'
         )
 
+    @property
+    def log_dir(self) -> Path:
+        """
+        Get log directory path.
+
+        Returns:
+            Path: The log directory path.
+        """
+        return Path(os.getenv(
+            'CALCULATOR_LOG_DIR',
+            str(self.base_dir / "logs")
+        )).resolve()
+
+    @property
+    def history_dir(self) -> Path:
+        """
+        Get history directory path.
+
+        Returns:
+            Path: The history directory path.
+        """
+        return Path(os.getenv(
+            'CALCULATOR_HISTORY_DIR',
+            str(self.base_dir / "history")
+        )).resolve()
+
+    @property
+    def history_file(self) -> Path:
+        """
+        Get history file path.
+
+        Returns:
+            Path: The history file path.
+        """
+        return Path(os.getenv(
+            'CALCULATOR_HISTORY_FILE',
+            str(self.history_dir / "calculator_history.csv")
+        )).resolve()
+
+    @property
+    def log_file(self) -> Path:
+        """
+        Get log file path.
+
+        Returns:
+            Path: The log file path.
+        """
+        return Path(os.getenv(
+            'CALCULATOR_LOG_FILE',
+            str(self.log_dir / "calculator.log")
+        )).resolve()
+
+    def validate(self) -> None:
+        """
+        Validate configuration settings.
+
+        Raises:
+            ConfigurationError: If any configuration parameter is invalid.
+        """
+        if self.max_history_size <= 0:
+            raise ConfigurationError("max_history_size must be positive")
+        if self.precision <= 0:
+            raise ConfigurationError("precision must be positive")
+        if self.max_input_value <= 0:
+            raise ConfigurationError("max_input_value must be positive")
+
