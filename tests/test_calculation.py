@@ -2,12 +2,13 @@
 Comprehensive test suite for the Calculation class.
 
 Tests all methods including initialization, calculations, serialization,
-and utility methods.
+and utility methods with improved coverage.
 """
 
 import pytest
 import datetime
 from decimal import Decimal, InvalidOperation
+from unittest.mock import patch
 from app.calculation import Calculation
 from app.exceptions import OperationError
 
@@ -70,6 +71,11 @@ class TestCalculateMethod:
         calc = Calculation(operation="Multiplication", operand1=Decimal("100"), operand2=Decimal("0"))
         assert calc.result == Decimal("0")
 
+    def test_multiplication_negative_numbers(self):
+        """Test multiplication with negative numbers."""
+        calc = Calculation(operation="Multiplication", operand1=Decimal("-5"), operand2=Decimal("-3"))
+        assert calc.result == Decimal("15")
+
     def test_division(self):
         """Test division operation."""
         calc = Calculation(operation="Division", operand1=Decimal("10"), operand2=Decimal("2"))
@@ -96,6 +102,11 @@ class TestCalculateMethod:
         calc = Calculation(operation="Power", operand1=Decimal("5"), operand2=Decimal("0"))
         assert calc.result == Decimal("1")
 
+    def test_power_with_one_exponent(self):
+        """Test power with exponent of 1."""
+        calc = Calculation(operation="Power", operand1=Decimal("5"), operand2=Decimal("1"))
+        assert calc.result == Decimal("5")
+
     def test_power_with_negative_exponent_raises_error(self):
         """Test that negative exponent raises OperationError."""
         with pytest.raises(OperationError, match="Negative exponents are not supported"):
@@ -110,6 +121,11 @@ class TestCalculateMethod:
         """Test cube root operation."""
         calc = Calculation(operation="Root", operand1=Decimal("27"), operand2=Decimal("3"))
         assert calc.result == Decimal("3")
+
+    def test_root_operation_fourth_root(self):
+        """Test fourth root operation."""
+        calc = Calculation(operation="Root", operand1=Decimal("16"), operand2=Decimal("4"))
+        assert calc.result == Decimal("2")
 
     def test_root_of_negative_number_raises_error(self):
         """Test that root of negative number raises OperationError."""
@@ -126,22 +142,63 @@ class TestCalculateMethod:
         calc = Calculation(operation="Modulus", operand1=Decimal("10"), operand2=Decimal("3"))
         assert calc.result == Decimal("1")
 
+    def test_modulus_with_zero_result(self):
+        """Test modulus with result of zero."""
+        calc = Calculation(operation="Modulus", operand1=Decimal("10"), operand2=Decimal("5"))
+        assert calc.result == Decimal("0")
+
     def test_integer_division_operation(self):
         """Test integer division operation."""
         calc = Calculation(operation="IntegerDivision", operand1=Decimal("10"), operand2=Decimal("3"))
         assert calc.result == Decimal("3")
+
+    def test_integer_division_exact(self):
+        """Test integer division with exact result."""
+        calc = Calculation(operation="IntegerDivision", operand1=Decimal("10"), operand2=Decimal("2"))
+        assert calc.result == Decimal("5")
+
+    def test_integer_division_by_zero_raises_error(self):
+        """Test that integer division by zero raises OperationError."""
+        with pytest.raises(OperationError, match="Division by zero is not allowed"):
+            Calculation(operation="IntegerDivision", operand1=Decimal("10"), operand2=Decimal("0"))
     
     def test_percentage_operation(self):
-        """Test percentage operation."""
+        """Test percentage operation - calculates x% of y."""
+        # 20% of 200 = (20/100) * 200 = 40
         calc = Calculation(operation="Percentage", operand1=Decimal("20"), operand2=Decimal("200"))
         assert calc.result == Decimal("40")
+
+    def test_percentage_operation_50_percent(self):
+        """Test percentage operation with 50%."""
+        # 50% of 100 = (50/100) * 100 = 50
+        calc = Calculation(operation="Percentage", operand1=Decimal("50"), operand2=Decimal("100"))
+        assert calc.result == Decimal("50")
+
+    def test_percentage_operation_decimal(self):
+        """Test percentage operation with decimal values."""
+        # 25% of 80 = (25/100) * 80 = 20
+        calc = Calculation(operation="Percentage", operand1=Decimal("25"), operand2=Decimal("80"))
+        assert calc.result == Decimal("20")
     
     def test_absolute_difference_operation(self):  
         """Test absolute difference operation."""
         calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("10"), operand2=Decimal("4"))
         assert calc.result == Decimal("6")
-        calc2 = Calculation(operation="AbsoluteDifference", operand1=Decimal("4"), operand2=Decimal("10"))
-        assert calc2.result == Decimal("6")
+
+    def test_absolute_difference_negative_first(self):
+        """Test absolute difference with negative first operand."""
+        calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("-10"), operand2=Decimal("4"))
+        assert calc.result == Decimal("14")
+
+    def test_absolute_difference_reversed(self):
+        """Test absolute difference with reversed operands."""
+        calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("4"), operand2=Decimal("10"))
+        assert calc.result == Decimal("6")
+
+    def test_absolute_difference_both_negative(self):
+        """Test absolute difference with both negative operands."""
+        calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("-10"), operand2=Decimal("-4"))
+        assert calc.result == Decimal("6")
 
     def test_unknown_operation_raises_error(self):
         """Test that unknown operation raises OperationError."""
@@ -150,10 +207,9 @@ class TestCalculateMethod:
 
     def test_calculate_handles_arithmetic_errors(self):
         """Test that calculate() properly handles arithmetic errors during calculation."""
-    # Create a calculation that will cause an arithmetic error
-    # Using extremely large exponents can cause overflow/arithmetic errors
+        # Using extremely large exponents can cause overflow/arithmetic errors
         with pytest.raises(OperationError, match="Calculation failed"):
-        # This should trigger an ArithmeticError/OverflowError during the pow() operation
+            # This should trigger an ArithmeticError/OverflowError during the pow() operation
             Calculation(
                 operation="Power",
                 operand1=Decimal("10"),
@@ -162,13 +218,14 @@ class TestCalculateMethod:
             
     def test_calculate_arithmetic_error_with_overflow(self):
         """Test that calculate() catches arithmetic errors from overflow."""
-    # Using Power with very large exponents causes overflow
+        # Using Power with very large exponents causes overflow
         with pytest.raises(OperationError, match="Calculation failed"):
             Calculation(
                 operation="Power",
                 operand1=Decimal("999999"),
                 operand2=Decimal("999999")
             )
+
 
 class TestToDictMethod:
     """Tests for the to_dict() serialization method."""
@@ -201,6 +258,13 @@ class TestToDictMethod:
         
         assert isinstance(result_dict['result'], str)
         assert Decimal(result_dict['result']) == calc.result
+
+    def test_to_dict_with_negative_numbers(self):
+        """Test to_dict with negative numbers."""
+        calc = Calculation(operation="Subtraction", operand1=Decimal("5"), operand2=Decimal("10"))
+        result_dict = calc.to_dict()
+        
+        assert result_dict['result'] == '-5'
 
 
 class TestFromDictMethod:
@@ -235,6 +299,23 @@ class TestFromDictMethod:
         calc = Calculation.from_dict(data)
         assert calc.result == Decimal('20')
 
+    def test_from_dict_with_mismatched_result_logs_warning(self, caplog):
+        """Test that mismatched result logs a warning."""
+        import logging
+        data = {
+            'operation': 'Addition',
+            'operand1': '5',
+            'operand2': '3',
+            'result': '999',  # Wrong result
+            'timestamp': '2024-01-15T10:30:00'
+        }
+        
+        with caplog.at_level(logging.WARNING):
+            calc = Calculation.from_dict(data)
+            # Should still create calculation with correct result
+            assert calc.result == Decimal('8')
+            assert 'differs from computed result' in caplog.text
+
     def test_from_dict_missing_operation_raises_error(self):
         """Test that missing operation field raises OperationError."""
         data = {
@@ -253,6 +334,39 @@ class TestFromDictMethod:
             'operand2': '3',
             'result': '8',
             'timestamp': '2024-01-15T10:30:00'
+        }
+        with pytest.raises(OperationError, match="Invalid calculation data"):
+            Calculation.from_dict(data)
+
+    def test_from_dict_missing_operand2_raises_error(self):
+        """Test that missing operand2 raises OperationError."""
+        data = {
+            'operation': 'Addition',
+            'operand1': '5',
+            'result': '8',
+            'timestamp': '2024-01-15T10:30:00'
+        }
+        with pytest.raises(OperationError, match="Invalid calculation data"):
+            Calculation.from_dict(data)
+
+    def test_from_dict_missing_result_raises_error(self):
+        """Test that missing result raises OperationError."""
+        data = {
+            'operation': 'Addition',
+            'operand1': '5',
+            'operand2': '3',
+            'timestamp': '2024-01-15T10:30:00'
+        }
+        with pytest.raises(OperationError, match="Invalid calculation data"):
+            Calculation.from_dict(data)
+
+    def test_from_dict_missing_timestamp_raises_error(self):
+        """Test that missing timestamp raises OperationError."""
+        data = {
+            'operation': 'Addition',
+            'operand1': '5',
+            'operand2': '3',
+            'result': '8'
         }
         with pytest.raises(OperationError, match="Invalid calculation data"):
             Calculation.from_dict(data)
@@ -295,6 +409,11 @@ class TestStringRepresentation:
         calc = Calculation(operation="Division", operand1=Decimal("10"), operand2=Decimal("2"))
         assert str(calc) == "Division(10, 2) = 5"
 
+    def test_str_with_negative_result(self):
+        """Test string representation with negative result."""
+        calc = Calculation(operation="Subtraction", operand1=Decimal("3"), operand2=Decimal("5"))
+        assert str(calc) == "Subtraction(3, 5) = -2"
+
     def test_repr_representation(self):
         """Test detailed repr representation."""
         calc = Calculation(operation="Multiplication", operand1=Decimal("4"), operand2=Decimal("5"))
@@ -329,10 +448,21 @@ class TestEqualityMethod:
         calc2 = Calculation(operation="Addition", operand1=Decimal("5"), operand2=Decimal("4"))
         assert calc1 != calc2
 
+    def test_different_operand1_not_equal(self):
+        """Test calculations with different first operand are not equal."""
+        calc1 = Calculation(operation="Addition", operand1=Decimal("5"), operand2=Decimal("3"))
+        calc2 = Calculation(operation="Addition", operand1=Decimal("6"), operand2=Decimal("3"))
+        assert calc1 != calc2
+
     def test_equality_with_non_calculation_returns_not_implemented(self):
         """Test equality comparison with non-Calculation object."""
         calc = Calculation(operation="Addition", operand1=Decimal("5"), operand2=Decimal("3"))
         assert calc.__eq__("not a calculation") == NotImplemented
+
+    def test_equality_with_none_returns_not_implemented(self):
+        """Test equality comparison with None."""
+        calc = Calculation(operation="Addition", operand1=Decimal("5"), operand2=Decimal("3"))
+        assert calc.__eq__(None) == NotImplemented
 
     def test_equality_ignores_timestamp(self):
         """Test that equality comparison ignores timestamp differences."""
@@ -378,6 +508,13 @@ class TestFormatResultMethod:
         formatted = calc.format_result(precision=0)
         assert isinstance(formatted, str)
 
+    def test_format_result_with_high_precision(self):
+        """Test format_result with high precision."""
+        calc = Calculation(operation="Division", operand1=Decimal("1"), operand2=Decimal("7"))
+        formatted = calc.format_result(precision=15)
+        assert isinstance(formatted, str)
+        assert len(formatted) > 0
+
 
 class TestEdgeCases:
     """Tests for edge cases and boundary conditions."""
@@ -414,6 +551,15 @@ class TestEdgeCases:
         calc = Calculation(operation="Addition", operand1=Decimal("0"), operand2=Decimal("0"))
         assert calc.result == Decimal("0")
 
+    def test_zero_times_large_number(self):
+        """Test zero multiplied by large number."""
+        calc = Calculation(
+            operation="Multiplication",
+            operand1=Decimal("0"),
+            operand2=Decimal("999999999")
+        )
+        assert calc.result == Decimal("0")
+
     def test_serialization_deserialization_round_trip(self):
         """Test that serialization and deserialization preserve data."""
         original = Calculation(operation="Division", operand1=Decimal("22"), operand2=Decimal("7"))
@@ -422,3 +568,24 @@ class TestEdgeCases:
         
         assert original == restored
         assert original.timestamp == restored.timestamp
+
+    def test_round_trip_with_all_operations(self):
+        """Test serialization round-trip for all operations."""
+        operations_data = [
+            ("Addition", "5", "3"),
+            ("Subtraction", "10", "4"),
+            ("Multiplication", "6", "7"),
+            ("Division", "20", "4"),
+            ("Power", "2", "3"),
+            ("Root", "16", "2"),
+            ("Modulus", "10", "3"),
+            ("IntegerDivision", "10", "3"),
+            ("Percentage", "25", "200"),
+            ("AbsoluteDifference", "10", "3"),
+        ]
+        
+        for op, op1, op2 in operations_data:
+            original = Calculation(operation=op, operand1=Decimal(op1), operand2=Decimal(op2))
+            data = original.to_dict()
+            restored = Calculation.from_dict(data)
+            assert original == restored
