@@ -63,7 +63,6 @@ class Addition(Operation):
     """
 
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        self.validcate_operands(a, b)
         """
         Add two numbers. 
 
@@ -86,7 +85,6 @@ class Subtraction(Operation):
     """
 
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        self.validate_operands(a, b)
         """
         Subtract two numbers. 
 
@@ -109,7 +107,6 @@ class Multiplication(Operation):
     """
 
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        self.validate_operands(a, b)
         """
         Multiply two numbers. 
 
@@ -146,10 +143,9 @@ class Division(Operation):
         """
         super().validate_operands(a, b)
         if b == 0:
-            raise ValidationError("Division by zero is not allowed.")   
+            raise ValidationError("Division by zero is not allowed")   
 
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        self.validate_operands(a, b)
         """
         Divide two numbers. 
 
@@ -165,8 +161,6 @@ class Division(Operation):
     
         """
         self.validate_operands(a, b)
-        if b == 0:
-            raise ValidationError("Division by zero is not allowed.")
         return a / b
     
 class Power(Operation):
@@ -176,11 +170,11 @@ class Power(Operation):
     Performs the exponentiation of a number.
     """
 
-    def validate_operands (self, a: Decimal, b: Decimal) -> None:
+    def validate_operands(self, a: Decimal, b: Decimal) -> None:
         """
         Validates the operands for the power operation.
         
-        Overrides teh base class method to make sure the expnonent is not negative.
+        Overrides the base class method to make sure the exponent is not negative.
 
         Args:
             a (Decimal): The base.
@@ -191,10 +185,9 @@ class Power(Operation):
         """
         super().validate_operands(a, b)
         if b < 0:
-            raise ValidationError("Negative exponent not supported")
+            raise ValidationError("Negative exponents not supported")
         
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
-        self.validate_operands(a, b)
         """
         Raise a number to the power of another number. 
 
@@ -207,7 +200,7 @@ class Power(Operation):
     
         """
         self.validate_operands(a, b)
-        return Decimal (pow((float(a)), float(b)))
+        return Decimal(pow(float(a), float(b)))
 
 class Root(Operation):
     """
@@ -259,19 +252,22 @@ class Modulus(Operation):
     """
     def validate_operands(self, a: Decimal, b: Decimal) -> None:
         """
-        Validate operands, checking for modulus by zero.
+        Validate operands, checking for modulus by zero and negative dividend.
 
-        Overrides the base class method to ensure that the divisor is not zero.
+        Overrides the base class method to ensure that the divisor is not zero
+        and the dividend is not negative.
 
         Args:
             a (Decimal): Dividend.
             b (Decimal): Divisor.
         Raises:
-            ValidationError: If the divisor is zero. 
+            ValidationError: If the divisor is zero or dividend is negative.
         """
         super().validate_operands(a, b)
         if b == 0:
-            raise ValidationError("Modulus by zero is not allowed") 
+            raise ValidationError("Modulus by zero is not allowed")
+        if a < 0:
+            raise ValidationError("Negative dividend not allowed for modulus")
         
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
         """
@@ -296,20 +292,23 @@ class IntegerDivision(Operation):
 
     def validate_operands(self, a: Decimal, b: Decimal) -> None:
         """
-        Validate operands, checking for division by zero.
+        Validate operands, checking for division by zero and negative dividend.
 
-        Overrides the base class method to ensure that the divisor is not zero.
+        Overrides the base class method to ensure that the divisor is not zero
+        and the dividend is not negative.
 
         Args:
             a (Decimal): Dividend.
             b (Decimal): Divisor.
         
         Raises:
-            ValidationError: If the divisor is zero.
+            ValidationError: If the divisor is zero or dividend is negative.
         """
         super().validate_operands(a, b)
         if b == 0:
             raise ValidationError("Integer division by zero is not allowed")
+        if a < 0:
+            raise ValidationError("Negative dividend not allowed for integer division")
     
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
         """
@@ -329,7 +328,7 @@ class Percentage(Operation):
     """
     Percentage operation implementation.
 
-    Calculates the percentage of one number relative to another.
+    Calculates what percentage the first number is of the second number.
     """
 
     def validate_operands(self, a: Decimal, b: Decimal) -> None:
@@ -339,11 +338,11 @@ class Percentage(Operation):
         Overrides the base class method to ensure that the second operand is not zero.
 
         Args:
-            a (Decimal): Part value.
-            b (Decimal): Whole value.
+            a (Decimal): Value to calculate percentage for.
+            b (Decimal): Total value.
 
         Raises:
-            ValidationError: If the whole value is zero.
+            ValidationError: If the total value is zero.
         """
         super().validate_operands(a, b)
         if b == 0:
@@ -351,14 +350,14 @@ class Percentage(Operation):
     
     def execute(self, a: Decimal, b: Decimal) -> Decimal:
         """
-        Calculate the percentage of one number relative to another.
+        Calculate what percentage the first number is of the second number.
 
         Args:
-            a (Decimal): Part value.
-            b (Decimal): Whole value.
+            a (Decimal): Value to calculate percentage for.
+            b (Decimal): Total value.
 
         Returns:
-            Decimal: Percentage value.
+            Decimal: Percentage value (e.g., 50 for 50%).
         """
         self.validate_operands(a, b)
         return (a / b) * 100
@@ -448,6 +447,3 @@ class OperationFactory:
         if not operation_class:
             raise ValueError(f"Unknown operation: {operation_type}")
         return operation_class()
-
-    
-
