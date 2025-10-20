@@ -121,6 +121,28 @@ class TestCalculateMethod:
         with pytest.raises(OperationError, match="Zero root is undefined"):
             Calculation(operation="Root", operand1=Decimal("9"), operand2=Decimal("0"))
 
+    def test_modulus_operation(self):
+        """Test modulus operation."""
+        calc = Calculation(operation="Modulus", operand1=Decimal("10"), operand2=Decimal("3"))
+        assert calc.result == Decimal("1")
+
+    def test_integer_division_operation(self):
+        """Test integer division operation."""
+        calc = Calculation(operation="IntegerDivision", operand1=Decimal("10"), operand2=Decimal("3"))
+        assert calc.result == Decimal("3")
+    
+    def test_percentage_operation(self):
+        """Test percentage operation."""
+        calc = Calculation(operation="Percentage", operand1=Decimal("20"), operand2=Decimal("200"))
+        assert calc.result == Decimal("40")
+    
+    def test_absolute_difference_operation(self):  
+        """Test absolute difference operation."""
+        calc = Calculation(operation="AbsoluteDifference", operand1=Decimal("10"), operand2=Decimal("4"))
+        assert calc.result == Decimal("6")
+        calc2 = Calculation(operation="AbsoluteDifference", operand1=Decimal("4"), operand2=Decimal("10"))
+        assert calc2.result == Decimal("6")
+
     def test_unknown_operation_raises_error(self):
         """Test that unknown operation raises OperationError."""
         with pytest.raises(OperationError, match="Unknown operation: InvalidOp"):
