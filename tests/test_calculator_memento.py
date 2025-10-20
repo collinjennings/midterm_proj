@@ -3,12 +3,15 @@ Comprehensive pytest test suite for CalculatorMemento class - 100% coverage
 """
 
 import datetime
+import time
 from decimal import Decimal
 from unittest.mock import Mock, patch
 
 import pytest
 
 from app.calculation import Calculation
+from app.calculator import Calculator
+from app.operations import Addition
 from app.calculator_memento import CalculatorMemento
 
 
@@ -373,15 +376,32 @@ class TestEdgeCases:
         # Both should reference the same list object
         assert memento.history is history
 
-    def test_multiple_mementos_independent(self, sample_calculation):
-        """Test that multiple mementos are independent."""
-        memento1 = CalculatorMemento(history=[sample_calculation])
-        memento2 = CalculatorMemento(history=[])
+
+
+    def test_multiple_mementos_independent(self):
+        # Create a calculator instance
+        calc = Calculator()
         
-        assert len(memento1.history) == 1
-        assert len(memento2.history) == 0
-        assert memento1.history is not memento2.history
+        # Perform some operation to have state
+        calc.set_operation(Addition())  # Or whatever operation class you're using
+        calc.perform_operation(5, 3)
+        
+        # Create first memento
+        memento1 = calc.create_memento()
+        
+        time.sleep(0.01)  # Add 10ms delay
+        
+        # Perform another operation to change state
+        calc.perform_operation(10, 2)
+        
+        # Create second memento
+        memento2 = calc.create_memento()
+        
+        # Verify mementos are independent with different timestamps
         assert memento1.timestamp != memento2.timestamp
+        # Also verify they have different history lengths
+        assert len(memento1.history) != len(memento2.history)
+
 
     def test_to_dict_with_large_history(self):
         """Test to_dict with a large number of calculations."""
