@@ -206,7 +206,7 @@ class Calculator:
             )
 
             # Save the current state to the undo stack before making changes
-            self.undo_stack.append(CalculatorMemento(self.history.copy()))
+            self.undo_stack.append(self.create_memento())
 
             # Clear the redo stack since new operation invalidates the redo history
             self.redo_stack.clear()
@@ -231,6 +231,31 @@ class Calculator:
             # Log and raise operation errors for any other exceptions
             logging.error(f"Operation failed: {str(e)}")
             raise OperationError(f"Operation failed: {str(e)}")
+
+    def create_memento(self) -> CalculatorMemento:
+        """
+        Create a memento of the current calculator state.
+
+        This method implements the Memento pattern by capturing the current state
+        of the calculator's history for later restoration.
+
+        Returns:
+            CalculatorMemento: A memento object containing a snapshot of the current state.
+        """
+        return CalculatorMemento(history=self.history.copy())
+
+    def restore_memento(self, memento: CalculatorMemento) -> None:
+        """
+        Restore calculator state from a memento.
+
+        This method restores the calculator's history from a previously saved
+        memento, allowing for state recovery or undo/redo functionality.
+
+        Args:
+            memento (CalculatorMemento): The memento containing the state to restore.
+        """
+        self.history = memento.history.copy()
+        logging.info(f"Restored state from memento with timestamp: {memento.timestamp}")
 
     def save_history(self) -> None:
         """
@@ -372,9 +397,9 @@ class Calculator:
         # Pop the last state from the undo stack
         memento = self.undo_stack.pop()
         # Push the current state onto the redo stack
-        self.redo_stack.append(CalculatorMemento(self.history.copy()))
+        self.redo_stack.append(self.create_memento())
         # Restore the history from the memento
-        self.history = memento.history.copy()
+        self.restore_memento(memento)
         return True
 
     def redo(self) -> bool:
@@ -391,7 +416,7 @@ class Calculator:
         # Pop the last state from the redo stack
         memento = self.redo_stack.pop()
         # Push the current state onto the undo stack
-        self.undo_stack.append(CalculatorMemento(self.history.copy()))
+        self.undo_stack.append(self.create_memento())
         # Restore the history from the memento
-        self.history = memento.history.copy()
+        self.restore_memento(memento)
         return True
