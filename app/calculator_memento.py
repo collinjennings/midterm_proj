@@ -19,7 +19,7 @@ class CalculatorMemento:
     """
 
     history: List[Calculation]  # List of Calculation instances representing the calculator's history
-    timestamp: datetime.datetime = field(default_factory=datetime.datetime.now)  # Time when the memento was created
+    timestamp: datetime.datetime = field(default_factory=lambda: datetime.datetime.now())  # Time when the memento was created
 
     def to_dict(self) -> Dict[str, Any]:
         """
