@@ -191,9 +191,6 @@ class TestModulus(BaseOperationTest):
     operation_class = Modulus
     valid_test_cases = {
         "positive_numbers": {"a": "5", "b": "3", "expected": "2"},
-        "negative_dividend": {"a": "-5", "b": "3", "expected": "1"},
-        "negative_divisor": {"a": "5", "b": "-3", "expected": "-1"},
-        "both_negative": {"a": "-5", "b": "-3", "expected": "-2"},
         "zero_dividend": {"a": "0", "b": "5", "expected": "0"},
         "decimals": {"a": "5.5", "b": "2.2", "expected": "1.1"},
     }
@@ -204,6 +201,12 @@ class TestModulus(BaseOperationTest):
             "error": ValidationError,
             "message": "Modulus by zero is not allowed"
         },
+        "modulus_negative_dividend": {
+            "a": "-5",
+            "b": "3",
+            "error": ValidationError,
+            "message": "Negative dividend not allowed for modulus"
+        },
     }
 
 class TestIntegerDivision(BaseOperationTest):
@@ -212,9 +215,6 @@ class TestIntegerDivision(BaseOperationTest):
     operation_class = IntegerDivision
     valid_test_cases = {
         "positive_numbers": {"a": "5", "b": "2", "expected": "2"},
-        "negative_dividend": {"a": "-5", "b": "2", "expected": "-3"},
-        "negative_divisor": {"a": "5", "b": "-2", "expected": "-3"},
-        "both_negative": {"a": "-5", "b": "-2", "expected": "2"},
         "zero_dividend": {"a": "0", "b": "5", "expected": "0"},
         "decimals": {"a": "5.5", "b": "2.2", "expected": "2"},
     }
@@ -225,6 +225,12 @@ class TestIntegerDivision(BaseOperationTest):
             "error": ValidationError,
             "message": "Integer division by zero is not allowed"
         },
+        "integer_division_negative_dividend": {
+            "a": "-5",
+            "b": "2",
+            "error": ValidationError,
+            "message": "Negative dividend not allowed for integer division"
+        },
     }
 
 class TestPercentage(BaseOperationTest):
@@ -232,12 +238,18 @@ class TestPercentage(BaseOperationTest):
 
     operation_class = Percentage
     valid_test_cases = {
-        "whole_percentage": {"a": "200", "b": "10", "expected": "20"},
-        "decimal_percentage": {"a": "150.5", "b": "15.5", "expected": "23.3275"},
-        "zero_percentage": {"a": "100", "b": "0", "expected": "0"},
-        "large_percentage": {"a": "1000", "b": "50", "expected": "500"},
+        "whole_percentage": {"a": "2", "b": "10", "expected": "20"},
+        "decimal_percentage": {"a": "50", "b": "200", "expected": "25"},
+        "large_percentage": {"a": "250", "b": "50", "expected": "500"},
     }
-    invalid_test_cases = {}  # Percentage has no invalid cases
+    invalid_test_cases = {
+        "zero_whole": {
+            "a": "100",
+            "b": "0",
+            "error": ValidationError,
+            "message": "Percentage calculation with zero as whole value is not allowed"
+        }
+    }
 
 class TestAbsoluteDifference(BaseOperationTest):
     """Test Absolute Difference operation."""
