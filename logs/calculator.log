@@ -1,0 +1,10 @@
+2025-10-20 13:02:59,337 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/logs/calculator.log
+2025-10-20 13:02:59,338 - INFO - No history file found - starting with empty history
+2025-10-20 13:02:59,338 - INFO - Calculator initialized with configuration
+2025-10-20 13:02:59,338 - INFO - Added observer: LoggingObserver
+2025-10-20 13:02:59,338 - INFO - Added observer: AutoSaveObserver
+2025-10-20 13:03:12,466 - INFO - Set operation: Modulus
+2025-10-20 13:03:12,468 - INFO - Calculation performed: Modulus (2E+1, 6) = 2
+2025-10-20 13:03:12,478 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
+2025-10-20 13:03:12,478 - INFO - History auto-saved
+2025-10-20 13:03:47,302 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
