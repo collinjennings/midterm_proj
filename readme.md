@@ -2,7 +2,7 @@
 
 This is a command line Python calculator application that features a wide range of mathematical operations and automatically preserves the user's history with undo and redo functionality. 
 
-# :pocket_calculator: Usage Guide
+# 🧮 Usage Guide
 Here is the usage. Enter one of the operation keywords:
 
 - `add`
