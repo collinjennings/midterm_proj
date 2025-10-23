@@ -48,7 +48,9 @@ class BaseHelpMenu(HelpComponent):
 ╔════════════════════════════════════════════════════════════════╗
 
 BASIC USAGE:
-  Enter commands in the format: <operation> <operand1> <operand2>
+  Enter command: <operation>
+  First number: <operand1>
+  Second number: <operand2>
   
 GENERAL COMMANDS:
   help          - Display this help menu
