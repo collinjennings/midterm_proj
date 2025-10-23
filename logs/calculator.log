@@ -8,3 +8,25 @@
 2025-10-20 13:03:12,478 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
 2025-10-20 13:03:12,478 - INFO - History auto-saved
 2025-10-20 13:03:47,302 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
+2025-10-23 11:39:42,167 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/logs/calculator.log
+2025-10-23 11:39:42,172 - INFO - Loaded 1 calculations from history
+2025-10-23 11:39:42,172 - INFO - Calculator initialized with configuration
+2025-10-23 11:39:42,172 - INFO - Added observer: LoggingObserver
+2025-10-23 11:39:42,172 - INFO - Added observer: AutoSaveObserver
+2025-10-23 11:40:03,265 - INFO - Set operation: AbsoluteDifference
+2025-10-23 11:40:03,266 - INFO - Calculation performed: AbsoluteDifference (19, 42) = 23
+2025-10-23 11:40:03,276 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
+2025-10-23 11:40:03,276 - INFO - History auto-saved
+2025-10-23 11:40:08,563 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
+2025-10-23 12:29:46,307 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/logs/calculator.log
+2025-10-23 12:29:46,311 - INFO - Loaded 2 calculations from history
+2025-10-23 12:29:46,311 - INFO - Calculator initialized with configuration
+2025-10-23 12:29:46,311 - INFO - Added observer: LoggingObserver
+2025-10-23 12:29:46,311 - INFO - Added observer: AutoSaveObserver
+2025-10-23 12:29:56,130 - INFO - Set operation: Percentage
+2025-10-23 12:29:56,131 - INFO - Calculation performed: Percentage (5, 2E+1) = 1.0
+2025-10-23 12:29:56,139 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv
+2025-10-23 12:29:56,139 - INFO - History auto-saved
+2025-10-23 12:30:02,294 - INFO - Restored state from memento with timestamp: 2025-10-23 12:29:56.131594
+2025-10-23 12:30:04,828 - INFO - Restored state from memento with timestamp: 2025-10-23 12:30:02.294193
+2025-10-23 12:30:27,595 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/history/calculator_history.csv

@@ -4412,3 +4412,220 @@
 2025-10-22 11:42:04,863 - INFO - Set operation: Addition
 2025-10-22 11:42:04,923 - ERROR - Fatal error in calculator REPL: Fatal initialization error
 2025-10-22 11:42:04,967 - INFO - History auto-saved
+2025-10-23 12:31:20,765 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,769 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,769 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,770 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,771 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,772 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,772 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,772 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,773 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,774 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,774 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,777 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,779 - INFO - Loaded 1 calculations from history
+2025-10-23 12:31:20,779 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,781 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,781 - WARNING - Could not load existing history: Load error
+2025-10-23 12:31:20,781 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,783 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,783 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,783 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,784 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,784 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,784 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,784 - INFO - Test message
+2025-10-23 12:31:20,786 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,786 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,786 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,787 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,788 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,788 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,791 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,793 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,793 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,793 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,794 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,794 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,795 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,795 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,795 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,795 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,795 - INFO - Removed observer: HistoryObserver
+2025-10-23 12:31:20,797 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,797 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,797 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,798 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,798 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,800 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,800 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,800 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,800 - INFO - Set operation: add
+2025-10-23 12:31:20,801 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,802 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,802 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,803 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,803 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,803 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,803 - INFO - Set operation: add
+2025-10-23 12:31:20,804 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,805 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,805 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,805 - INFO - Set operation: add
+2025-10-23 12:31:20,807 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,807 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,807 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,808 - INFO - Set operation: add
+2025-10-23 12:31:20,808 - ERROR - Validation error: Invalid number format: invalid
+2025-10-23 12:31:20,809 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,809 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,809 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,809 - INFO - Set operation: add
+2025-10-23 12:31:20,809 - ERROR - Operation failed: Calculation error
+2025-10-23 12:31:20,810 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,810 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,810 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,811 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,811 - INFO - Set operation: add
+2025-10-23 12:31:20,812 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,813 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,813 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,813 - INFO - Set operation: add
+2025-10-23 12:31:20,815 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,815 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,815 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,816 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,816 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,816 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,817 - INFO - Set operation: add
+2025-10-23 12:31:20,818 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,818 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,818 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,819 - INFO - Set operation: add
+2025-10-23 12:31:20,819 - INFO - History cleared
+2025-10-23 12:31:20,820 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,820 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,820 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,822 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,823 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,823 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,823 - INFO - Set operation: add
+2025-10-23 12:31:20,825 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,825 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,825 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,826 - INFO - Set operation: add
+2025-10-23 12:31:20,827 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_history/test_history.csv
+2025-10-23 12:31:20,828 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,829 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,829 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,830 - INFO - Empty history saved
+2025-10-23 12:31:20,832 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,832 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,832 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,833 - INFO - Empty history saved
+2025-10-23 12:31:20,834 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,835 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,835 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,835 - INFO - Set operation: add
+2025-10-23 12:31:20,836 - ERROR - Failed to save history: Write error
+2025-10-23 12:31:20,837 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,837 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,837 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,838 - INFO - Set operation: add
+2025-10-23 12:31:20,839 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_history/test_history.csv
+2025-10-23 12:31:20,840 - INFO - Loaded 1 calculations from history
+2025-10-23 12:31:20,842 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,842 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,842 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,842 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,843 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,844 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,844 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,844 - INFO - Empty history saved
+2025-10-23 12:31:20,845 - INFO - Loaded empty history file
+2025-10-23 12:31:20,846 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,846 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,846 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,847 - INFO - Empty history saved
+2025-10-23 12:31:20,848 - ERROR - Failed to load history: Read error
+2025-10-23 12:31:20,849 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,849 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,849 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,850 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,851 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,851 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,851 - INFO - Set operation: add
+2025-10-23 12:31:20,851 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.851838
+2025-10-23 12:31:20,852 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,853 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,853 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,853 - INFO - Set operation: add
+2025-10-23 12:31:20,853 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.853732
+2025-10-23 12:31:20,853 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.853711
+2025-10-23 12:31:20,855 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,855 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,855 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,856 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,856 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,856 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,857 - INFO - Set operation: add
+2025-10-23 12:31:20,857 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.857763
+2025-10-23 12:31:20,857 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.857771
+2025-10-23 12:31:20,858 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,858 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,858 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,859 - INFO - Set operation: add
+2025-10-23 12:31:20,859 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.859558
+2025-10-23 12:31:20,860 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,860 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,860 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,861 - INFO - Set operation: add
+2025-10-23 12:31:20,861 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.861816
+2025-10-23 12:31:20,861 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.861792
+2025-10-23 12:31:20,861 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.861866
+2025-10-23 12:31:20,861 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.861823
+2025-10-23 12:31:20,863 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,863 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,863 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,863 - INFO - Set operation: add
+2025-10-23 12:31:20,865 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,865 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,865 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,865 - INFO - Set operation: add
+2025-10-23 12:31:20,867 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,867 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,867 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,868 - INFO - Set operation: add
+2025-10-23 12:31:20,869 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,869 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,869 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,870 - INFO - Set operation: add
+2025-10-23 12:31:20,871 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,871 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,872 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,873 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,873 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,873 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,873 - INFO - Set operation: add
+2025-10-23 12:31:20,875 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,875 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,875 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,876 - INFO - Added observer: HistoryObserver
+2025-10-23 12:31:20,876 - INFO - Set operation: add
+2025-10-23 12:31:20,877 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_history/test_history.csv
+2025-10-23 12:31:20,878 - INFO - Loaded 1 calculations from history
+2025-10-23 12:31:20,880 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,880 - INFO - No history file found - starting with empty history
+2025-10-23 12:31:20,880 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,880 - INFO - Set operation: add
+2025-10-23 12:31:20,882 - INFO - History saved successfully to /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_history/test_history.csv
+2025-10-23 12:31:20,882 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.881076
+2025-10-23 12:31:20,882 - INFO - Restored state from memento with timestamp: 2025-10-23 12:31:20.882236
+2025-10-23 12:31:20,895 - INFO - Logging initialized at: /Users/collinjennings/Documents/GitHub/projects/midterm_proj/test_logs/test_log.log
+2025-10-23 12:31:20,896 - ERROR - Failed to load history: Invalid calculation data: [<class 'decimal.ConversionSyntax'>]
+2025-10-23 12:31:20,896 - WARNING - Could not load existing history: Failed to load history: Invalid calculation data: [<class 'decimal.ConversionSyntax'>]
+2025-10-23 12:31:20,896 - INFO - Calculator initialized with configuration
+2025-10-23 12:31:20,896 - INFO - Set operation: Addition
+2025-10-23 12:31:20,956 - ERROR - Fatal error in calculator REPL: Fatal initialization error
+2025-10-23 12:31:20,998 - INFO - History auto-saved

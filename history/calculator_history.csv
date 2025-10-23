@@ -1,2 +1,4 @@
 operation,operand1,operand2,result,timestamp
-Modulus,2E+1,6,2,2025-10-20T13:03:12.467972
+Modulus,20,6,2,2025-10-20T13:03:12.467972
+AbsoluteDifference,19,42,23,2025-10-23T11:40:03.266691
+Percentage,5,2E+1,1.0,2025-10-23T12:29:56.131503

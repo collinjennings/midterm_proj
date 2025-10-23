@@ -18,7 +18,7 @@ Here is the usage. Enter one of the operation keywords:
 
 Then enter the first number, followed by the second number. 
 
-The Calculator preserves a history of the performed operations, and the user may undo and redo operations, which will be removed or re-added to the history. The calculator also has a dynamic help menu, which allows operations to be added automatically once they're added to the operations class. Beyond the operation commands, the other available commands are: 
+The Calculator preserves a history of the performed operations, and the user may undo and redo operations, which will be removed or re-added to the history. The calculator also has a dynamic help menu, which automatically adds new operations to the help menu once they've been added to the operations class. Beyond the operation commands, the other available commands are: 
 
 - `history` - Show calculation history
 - `clear` - Clear calculation history
