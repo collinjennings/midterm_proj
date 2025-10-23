@@ -33,7 +33,7 @@ The Calculator preserves a history of the performed operations, and the user may
 
 ---
 
-# 🧩 1. Install Homebrew (Mac Only)
+# 🧩 Install Homebrew (Mac Only)
 
 > Skip this step if you're on Windows.
 
@@ -56,7 +56,7 @@ If you see a version number, you're good to go.
 
 ---
 
-# 🧩 2. Install and Configure Git
+# 🧩 Install and Configure Git
 
 ## Install Git
 
@@ -208,6 +208,7 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+--- 
 
 # Configuration Setup
 The application includes `.env` file for configuring the environment variables in the applicaton. The `.env.` file should include these parameters.
@@ -228,9 +229,13 @@ The application includes `.env` file for configuring the environment variables i
 `CALCULATOR_MAX_INPUT_VALUE: Maximum allowed input value.`
 `CALCULATOR_DEFAULT_ENCODING: Default encoding for file operations.`
 
+--- 
+
 # Testing Instructions 
 
 The application includes testing suites for all of the classes and functions. You can run `pytest tests/ --cov=app --cov-report=term-missing` to observe the testing coverage for the app. 
+
+--- 
 
 # CI/CD Information
 
